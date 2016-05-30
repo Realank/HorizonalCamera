@@ -1,0 +1,519 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8CCF3DCC1CFC09E700A1A4E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF3DCB1CFC09E700A1A4E2 /* main.m */; };
+		8CCF3DCF1CFC09E700A1A4E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF3DCE1CFC09E700A1A4E2 /* AppDelegate.m */; };
+		8CCF3DD21CFC09E700A1A4E2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF3DD11CFC09E700A1A4E2 /* ViewController.m */; };
+		8CCF3DD51CFC09E700A1A4E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF3DD31CFC09E700A1A4E2 /* Main.storyboard */; };
+		8CCF3DD71CFC09E700A1A4E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF3DD61CFC09E700A1A4E2 /* Assets.xcassets */; };
+		8CCF3DDA1CFC09E700A1A4E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF3DD81CFC09E700A1A4E2 /* LaunchScreen.storyboard */; };
+		8CCF3DE51CFC09E700A1A4E2 /* HorizonalCameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF3DE41CFC09E700A1A4E2 /* HorizonalCameraTests.m */; };
+		8CCF3DF01CFC09E700A1A4E2 /* HorizonalCameraUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF3DEF1CFC09E700A1A4E2 /* HorizonalCameraUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8CCF3DE11CFC09E700A1A4E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CCF3DBF1CFC09E600A1A4E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8CCF3DC61CFC09E700A1A4E2;
+			remoteInfo = HorizonalCamera;
+		};
+		8CCF3DEC1CFC09E700A1A4E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CCF3DBF1CFC09E600A1A4E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8CCF3DC61CFC09E700A1A4E2;
+			remoteInfo = HorizonalCamera;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8CCF3DC71CFC09E700A1A4E2 /* HorizonalCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HorizonalCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CCF3DCB1CFC09E700A1A4E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8CCF3DCD1CFC09E700A1A4E2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8CCF3DCE1CFC09E700A1A4E2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8CCF3DD01CFC09E700A1A4E2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8CCF3DD11CFC09E700A1A4E2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8CCF3DD41CFC09E700A1A4E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8CCF3DD61CFC09E700A1A4E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8CCF3DD91CFC09E700A1A4E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8CCF3DDB1CFC09E700A1A4E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CCF3DE01CFC09E700A1A4E2 /* HorizonalCameraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HorizonalCameraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CCF3DE41CFC09E700A1A4E2 /* HorizonalCameraTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HorizonalCameraTests.m; sourceTree = "<group>"; };
+		8CCF3DE61CFC09E700A1A4E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CCF3DEB1CFC09E700A1A4E2 /* HorizonalCameraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HorizonalCameraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CCF3DEF1CFC09E700A1A4E2 /* HorizonalCameraUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HorizonalCameraUITests.m; sourceTree = "<group>"; };
+		8CCF3DF11CFC09E700A1A4E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8CCF3DC41CFC09E700A1A4E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CCF3DDD1CFC09E700A1A4E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CCF3DE81CFC09E700A1A4E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8CCF3DBE1CFC09E600A1A4E2 = {
+			isa = PBXGroup;
+			children = (
+				8CCF3DC91CFC09E700A1A4E2 /* HorizonalCamera */,
+				8CCF3DE31CFC09E700A1A4E2 /* HorizonalCameraTests */,
+				8CCF3DEE1CFC09E700A1A4E2 /* HorizonalCameraUITests */,
+				8CCF3DC81CFC09E700A1A4E2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8CCF3DC81CFC09E700A1A4E2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8CCF3DC71CFC09E700A1A4E2 /* HorizonalCamera.app */,
+				8CCF3DE01CFC09E700A1A4E2 /* HorizonalCameraTests.xctest */,
+				8CCF3DEB1CFC09E700A1A4E2 /* HorizonalCameraUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8CCF3DC91CFC09E700A1A4E2 /* HorizonalCamera */ = {
+			isa = PBXGroup;
+			children = (
+				8CCF3DCD1CFC09E700A1A4E2 /* AppDelegate.h */,
+				8CCF3DCE1CFC09E700A1A4E2 /* AppDelegate.m */,
+				8CCF3DD01CFC09E700A1A4E2 /* ViewController.h */,
+				8CCF3DD11CFC09E700A1A4E2 /* ViewController.m */,
+				8CCF3DD31CFC09E700A1A4E2 /* Main.storyboard */,
+				8CCF3DD61CFC09E700A1A4E2 /* Assets.xcassets */,
+				8CCF3DD81CFC09E700A1A4E2 /* LaunchScreen.storyboard */,
+				8CCF3DDB1CFC09E700A1A4E2 /* Info.plist */,
+				8CCF3DCA1CFC09E700A1A4E2 /* Supporting Files */,
+			);
+			path = HorizonalCamera;
+			sourceTree = "<group>";
+		};
+		8CCF3DCA1CFC09E700A1A4E2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8CCF3DCB1CFC09E700A1A4E2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8CCF3DE31CFC09E700A1A4E2 /* HorizonalCameraTests */ = {
+			isa = PBXGroup;
+			children = (
+				8CCF3DE41CFC09E700A1A4E2 /* HorizonalCameraTests.m */,
+				8CCF3DE61CFC09E700A1A4E2 /* Info.plist */,
+			);
+			path = HorizonalCameraTests;
+			sourceTree = "<group>";
+		};
+		8CCF3DEE1CFC09E700A1A4E2 /* HorizonalCameraUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8CCF3DEF1CFC09E700A1A4E2 /* HorizonalCameraUITests.m */,
+				8CCF3DF11CFC09E700A1A4E2 /* Info.plist */,
+			);
+			path = HorizonalCameraUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8CCF3DC61CFC09E700A1A4E2 /* HorizonalCamera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CCF3DF41CFC09E700A1A4E2 /* Build configuration list for PBXNativeTarget "HorizonalCamera" */;
+			buildPhases = (
+				8CCF3DC31CFC09E700A1A4E2 /* Sources */,
+				8CCF3DC41CFC09E700A1A4E2 /* Frameworks */,
+				8CCF3DC51CFC09E700A1A4E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HorizonalCamera;
+			productName = HorizonalCamera;
+			productReference = 8CCF3DC71CFC09E700A1A4E2 /* HorizonalCamera.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8CCF3DDF1CFC09E700A1A4E2 /* HorizonalCameraTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CCF3DF71CFC09E700A1A4E2 /* Build configuration list for PBXNativeTarget "HorizonalCameraTests" */;
+			buildPhases = (
+				8CCF3DDC1CFC09E700A1A4E2 /* Sources */,
+				8CCF3DDD1CFC09E700A1A4E2 /* Frameworks */,
+				8CCF3DDE1CFC09E700A1A4E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8CCF3DE21CFC09E700A1A4E2 /* PBXTargetDependency */,
+			);
+			name = HorizonalCameraTests;
+			productName = HorizonalCameraTests;
+			productReference = 8CCF3DE01CFC09E700A1A4E2 /* HorizonalCameraTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8CCF3DEA1CFC09E700A1A4E2 /* HorizonalCameraUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CCF3DFA1CFC09E700A1A4E2 /* Build configuration list for PBXNativeTarget "HorizonalCameraUITests" */;
+			buildPhases = (
+				8CCF3DE71CFC09E700A1A4E2 /* Sources */,
+				8CCF3DE81CFC09E700A1A4E2 /* Frameworks */,
+				8CCF3DE91CFC09E700A1A4E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8CCF3DED1CFC09E700A1A4E2 /* PBXTargetDependency */,
+			);
+			name = HorizonalCameraUITests;
+			productName = HorizonalCameraUITests;
+			productReference = 8CCF3DEB1CFC09E700A1A4E2 /* HorizonalCameraUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8CCF3DBF1CFC09E600A1A4E2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Relaank;
+				TargetAttributes = {
+					8CCF3DC61CFC09E700A1A4E2 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					8CCF3DDF1CFC09E700A1A4E2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 8CCF3DC61CFC09E700A1A4E2;
+					};
+					8CCF3DEA1CFC09E700A1A4E2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 8CCF3DC61CFC09E700A1A4E2;
+					};
+				};
+			};
+			buildConfigurationList = 8CCF3DC21CFC09E600A1A4E2 /* Build configuration list for PBXProject "HorizonalCamera" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8CCF3DBE1CFC09E600A1A4E2;
+			productRefGroup = 8CCF3DC81CFC09E700A1A4E2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8CCF3DC61CFC09E700A1A4E2 /* HorizonalCamera */,
+				8CCF3DDF1CFC09E700A1A4E2 /* HorizonalCameraTests */,
+				8CCF3DEA1CFC09E700A1A4E2 /* HorizonalCameraUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8CCF3DC51CFC09E700A1A4E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CCF3DDA1CFC09E700A1A4E2 /* LaunchScreen.storyboard in Resources */,
+				8CCF3DD71CFC09E700A1A4E2 /* Assets.xcassets in Resources */,
+				8CCF3DD51CFC09E700A1A4E2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CCF3DDE1CFC09E700A1A4E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CCF3DE91CFC09E700A1A4E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8CCF3DC31CFC09E700A1A4E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CCF3DD21CFC09E700A1A4E2 /* ViewController.m in Sources */,
+				8CCF3DCF1CFC09E700A1A4E2 /* AppDelegate.m in Sources */,
+				8CCF3DCC1CFC09E700A1A4E2 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CCF3DDC1CFC09E700A1A4E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CCF3DE51CFC09E700A1A4E2 /* HorizonalCameraTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CCF3DE71CFC09E700A1A4E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CCF3DF01CFC09E700A1A4E2 /* HorizonalCameraUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8CCF3DE21CFC09E700A1A4E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8CCF3DC61CFC09E700A1A4E2 /* HorizonalCamera */;
+			targetProxy = 8CCF3DE11CFC09E700A1A4E2 /* PBXContainerItemProxy */;
+		};
+		8CCF3DED1CFC09E700A1A4E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8CCF3DC61CFC09E700A1A4E2 /* HorizonalCamera */;
+			targetProxy = 8CCF3DEC1CFC09E700A1A4E2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8CCF3DD31CFC09E700A1A4E2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CCF3DD41CFC09E700A1A4E2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8CCF3DD81CFC09E700A1A4E2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CCF3DD91CFC09E700A1A4E2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8CCF3DF21CFC09E700A1A4E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8CCF3DF31CFC09E700A1A4E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8CCF3DF51CFC09E700A1A4E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HorizonalCamera/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Realank.HorizonalCamera;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8CCF3DF61CFC09E700A1A4E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HorizonalCamera/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Realank.HorizonalCamera;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		8CCF3DF81CFC09E700A1A4E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HorizonalCameraTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Realank.HorizonalCameraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HorizonalCamera.app/HorizonalCamera";
+			};
+			name = Debug;
+		};
+		8CCF3DF91CFC09E700A1A4E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HorizonalCameraTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Realank.HorizonalCameraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HorizonalCamera.app/HorizonalCamera";
+			};
+			name = Release;
+		};
+		8CCF3DFB1CFC09E700A1A4E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = HorizonalCameraUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Realank.HorizonalCameraUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HorizonalCamera;
+			};
+			name = Debug;
+		};
+		8CCF3DFC1CFC09E700A1A4E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = HorizonalCameraUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Realank.HorizonalCameraUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HorizonalCamera;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8CCF3DC21CFC09E600A1A4E2 /* Build configuration list for PBXProject "HorizonalCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CCF3DF21CFC09E700A1A4E2 /* Debug */,
+				8CCF3DF31CFC09E700A1A4E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8CCF3DF41CFC09E700A1A4E2 /* Build configuration list for PBXNativeTarget "HorizonalCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CCF3DF51CFC09E700A1A4E2 /* Debug */,
+				8CCF3DF61CFC09E700A1A4E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8CCF3DF71CFC09E700A1A4E2 /* Build configuration list for PBXNativeTarget "HorizonalCameraTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CCF3DF81CFC09E700A1A4E2 /* Debug */,
+				8CCF3DF91CFC09E700A1A4E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8CCF3DFA1CFC09E700A1A4E2 /* Build configuration list for PBXNativeTarget "HorizonalCameraUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CCF3DFB1CFC09E700A1A4E2 /* Debug */,
+				8CCF3DFC1CFC09E700A1A4E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8CCF3DBF1CFC09E600A1A4E2 /* Project object */;
+}
