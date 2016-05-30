@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +18,91 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mlf-Vj-g0K">
+                                <rect key="frame" x="0.0" y="50" width="600" height="799"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HN5-pG-2HQ">
+                                        <rect key="frame" x="46" y="59" width="54" height="54"/>
+                                        <color key="backgroundColor" red="1" green="0.8096175377" blue="0.47840306910000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Mlf-Vj-g0K" secondAttribute="height" multiplier="3:4" constant="1" id="yNa-0z-wcT"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IpC-Bh-tdH">
+                                <rect key="frame" x="284" y="562" width="32" height="30"/>
+                                <state key="normal" title="Shot"/>
+                                <connections>
+                                    <action selector="takeButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H7L-Qr-Dhm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSO-hh-oDc">
+                                <rect key="frame" x="96" y="20" width="30" height="30"/>
+                                <state key="normal" title="自动"/>
+                                <connections>
+                                    <action selector="flashAutoClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jdP-JL-Mtx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxN-qn-Dfy">
+                                <rect key="frame" x="20" y="20" width="30" height="30"/>
+                                <state key="normal" title="关闭"/>
+                                <connections>
+                                    <action selector="flashOffClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SXg-aQ-Cla"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEv-Bz-K40">
+                                <rect key="frame" x="550" y="20" width="30" height="30"/>
+                                <state key="normal" title="切换"/>
+                                <connections>
+                                    <action selector="toggleButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZwM-hW-Hrn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PG7-P4-col">
+                                <rect key="frame" x="58" y="20" width="30" height="30"/>
+                                <state key="normal" title="打开"/>
+                                <connections>
+                                    <action selector="flashOnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5hy-7J-Mvl"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="NxN-qn-Dfy" secondAttribute="leading" id="6Yy-i8-0aO"/>
+                            <constraint firstItem="Mlf-Vj-g0K" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="8gu-mi-4Fc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IpC-Bh-tdH" secondAttribute="bottom" constant="8" id="9M2-ll-dEQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mlf-Vj-g0K" secondAttribute="bottom" constant="20" id="A4f-xe-ksj"/>
+                            <constraint firstItem="HSO-hh-oDc" firstAttribute="centerY" secondItem="PG7-P4-col" secondAttribute="centerY" id="Imk-AT-sxu"/>
+                            <constraint firstItem="PG7-P4-col" firstAttribute="leading" secondItem="NxN-qn-Dfy" secondAttribute="trailing" constant="8" id="KNM-iT-Ga4"/>
+                            <constraint firstItem="HSO-hh-oDc" firstAttribute="leading" secondItem="PG7-P4-col" secondAttribute="trailing" constant="8" id="L5C-Bs-veB"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Mlf-Vj-g0K" secondAttribute="leading" constant="20" id="QXf-2N-pof"/>
+                            <constraint firstItem="IpC-Bh-tdH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Y22-bI-0dF"/>
+                            <constraint firstItem="fEv-Bz-K40" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="bvY-ry-Lh7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Mlf-Vj-g0K" secondAttribute="trailing" constant="-20" id="ekK-uB-PW2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fEv-Bz-K40" secondAttribute="trailing" id="ghJ-7F-rnA"/>
+                            <constraint firstItem="NxN-qn-Dfy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qyr-l2-Ntb"/>
+                            <constraint firstItem="PG7-P4-col" firstAttribute="centerY" secondItem="NxN-qn-Dfy" secondAttribute="centerY" id="rvo-vJ-Bwh"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="A4f-xe-ksj"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="flashAutoButton" destination="HSO-hh-oDc" id="EXn-qM-hXB"/>
+                        <outlet property="flashOffButton" destination="NxN-qn-Dfy" id="9c4-BM-uPc"/>
+                        <outlet property="flashOnButton" destination="PG7-P4-col" id="t7T-CD-FED"/>
+                        <outlet property="focusCursor" destination="HN5-pG-2HQ" id="Od4-1O-5D3"/>
+                        <outlet property="takeButton" destination="IpC-Bh-tdH" id="Gqf-Dr-4RD"/>
+                        <outlet property="viewContainer" destination="Mlf-Vj-g0K" id="lSj-gy-FMo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="565" y="477"/>
         </scene>
     </scenes>
 </document>

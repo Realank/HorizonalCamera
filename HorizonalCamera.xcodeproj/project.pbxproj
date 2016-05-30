@@ -15,6 +15,7 @@
 		8CCF3DDA1CFC09E700A1A4E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF3DD81CFC09E700A1A4E2 /* LaunchScreen.storyboard */; };
 		8CCF3DE51CFC09E700A1A4E2 /* HorizonalCameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF3DE41CFC09E700A1A4E2 /* HorizonalCameraTests.m */; };
 		8CCF3DF01CFC09E700A1A4E2 /* HorizonalCameraUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF3DEF1CFC09E700A1A4E2 /* HorizonalCameraUITests.m */; };
+		8CD9A9A31CFC124100F4313A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CD9A9A21CFC124100F4313A /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		8CCF3DEB1CFC09E700A1A4E2 /* HorizonalCameraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HorizonalCameraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CCF3DEF1CFC09E700A1A4E2 /* HorizonalCameraUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HorizonalCameraUITests.m; sourceTree = "<group>"; };
 		8CCF3DF11CFC09E700A1A4E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CD9A9A21CFC124100F4313A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CD9A9A31CFC124100F4313A /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +120,7 @@
 		8CCF3DCA1CFC09E700A1A4E2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8CD9A9A21CFC124100F4313A /* CoreMotion.framework */,
 				8CCF3DCB1CFC09E700A1A4E2 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -496,6 +500,7 @@
 				8CCF3DF61CFC09E700A1A4E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8CCF3DF71CFC09E700A1A4E2 /* Build configuration list for PBXNativeTarget "HorizonalCameraTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +509,7 @@
 				8CCF3DF91CFC09E700A1A4E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8CCF3DFA1CFC09E700A1A4E2 /* Build configuration list for PBXNativeTarget "HorizonalCameraUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +518,7 @@
 				8CCF3DFC1CFC09E700A1A4E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
