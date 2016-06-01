@@ -37,6 +37,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 @property (nonatomic, assign) UIDeviceOrientation deviceOritation;
 @property (nonatomic, assign) CGFloat deviceAngle;
 
+@property (nonatomic, assign) BOOL needShowAssistantLine;
 @end
 
 @implementation ViewController
@@ -102,18 +103,21 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     }
     _viewScopeLayer.affineTransform = CGAffineTransformMakeRotation(-_deviceAngle);
     
-    CGSize size = [self sizeOfDeviceRotationAngleFromSize:containerLayer.bounds.size];
+    CGSize size = [self sizeOfRotationAngle:_deviceAngle FromSize:containerLayer.bounds.size];
     _viewScopeLayer.bounds = CGRectMake(0, 0, size.width, size.height);
 }
 
-- (CGSize)sizeOfDeviceRotationAngleFromSize:(CGSize)originalSize{
+- (CGSize)sizeOfRotationAngle:(CGFloat)angle FromSize:(CGSize)originalSize{
+    if (angle >= M_PI * 2) {
+        angle = 0;
+    }
     CGFloat containerWidth = originalSize.width;
     CGFloat containerHeight = originalSize.height;
     CGFloat angleB = atan(containerWidth/containerHeight);
-    CGFloat margin = _deviceAngle;
+    CGFloat margin = angle;
     if (_deviceOritation == UIDeviceOrientationPortrait) {
         if (margin > M_PI) {
-            margin = 2 * M_PI - _deviceAngle;
+            margin = 2 * M_PI - angle;
         }
         
         CGFloat width = containerWidth * sin(angleB) / sin(margin + angleB);
@@ -121,25 +125,25 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
         return CGSizeMake(width, height);
         
     }else if (_deviceOritation == UIDeviceOrientationPortraitUpsideDown){
-        margin = fabs(_deviceAngle - M_PI);
+        margin = fabs(angle - M_PI);
         
         CGFloat width = containerWidth * sin(angleB) / sin(margin + angleB);
         CGFloat height = containerHeight / containerWidth * width;
         return CGSizeMake(width, height);
     }else if (_deviceOritation == UIDeviceOrientationLandscapeLeft){
-        margin = fabs(_deviceAngle - 3 * M_PI_2);
+        margin = fabs(angle - 3 * M_PI_2);
         
         CGFloat height = containerWidth * sin(angleB) / sin(margin + angleB);
         CGFloat width = containerHeight / containerWidth * height;
         return CGSizeMake(width, height);
     }else{
-        margin = fabs(_deviceAngle - M_PI_2);
+        margin = fabs(angle - M_PI_2);
         
         CGFloat height = containerWidth * sin(angleB) / sin(margin + angleB);
         CGFloat width = containerHeight / containerWidth * height;
         return CGSizeMake(width, height);
     }
-
+    
 }
 
 - (void)dismissHorizonalLine{
@@ -175,7 +179,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
         _viewLineLayer.position = CGPointMake(containerWidth/2, containerHeight/2);
         oldHorizonal = isHorizonal;
     }
-
+    
 }
 
 - (void)dismissCameraLine{
@@ -208,7 +212,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     UIDeviceOrientation orientation;
     if (fabs(y) >= fabs(x)){
         if (y >= 0){
-             orientation = UIDeviceOrientationPortraitUpsideDown;
+            orientation = UIDeviceOrientationPortraitUpsideDown;
         }
         else{
             orientation = UIDeviceOrientationPortrait;
@@ -237,23 +241,21 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
         _deviceAngle = 2 * M_PI - tanAngle;
     }
     [self handleViewScope];
-//    NSLog(@"%f",_deviceAngle);
-
+    //    NSLog(@"%f",_deviceAngle);
+    
 }
 
 - (void)handleViewScope{
     
-    BOOL needShowAssistantLine = NO;
+    _needShowAssistantLine = NO;
     for (int i = 0; i <= 4; i++) {
         CGFloat gap = _deviceAngle - i * M_PI_2;
         if (fabs(gap) < 0.45) {
-            needShowAssistantLine = YES;
+            _needShowAssistantLine = YES;
             break;
         }
     }
-    if (needShowAssistantLine) {
-//        _viewScopeLayer.transform = CATransform3DMakeRotation(-_deviceAngle, 0, 0, 1);
-//        _viewScopeLayer.affineTransform = CGAffineTransformMakeRotation(-_deviceAngle);
+    if (_needShowAssistantLine) {
         [self drawCameraLineForHorizonal:(_deviceOritation == UIDeviceOrientationPortrait || _deviceOritation == UIDeviceOrientationPortraitUpsideDown)];
         [self drawHorizonalLine];
         
@@ -263,7 +265,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
         [self dismissHorizonalLine];
         
     }
-//    _viewScopeLayer.transform = CATransform3DMakeRotation(-_deviceAngle, 0, 0, 1);
+    //    _viewScopeLayer.transform = CATransform3DMakeRotation(-_deviceAngle, 0, 0, 1);
 }
 
 
@@ -327,13 +329,21 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     AVCaptureConnection *captureConnection=[self.captureStillImageOutput connectionWithMediaType:AVMediaTypeVideo];
     //根据连接取得设备输出的数据
     CGFloat angle = _deviceAngle;
+    __weak __typeof(self) weakSelf = self;
     [self.captureStillImageOutput captureStillImageAsynchronouslyFromConnection:captureConnection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
         if (imageDataSampleBuffer) {
             NSData *imageData=[AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
             UIImage *image=[UIImage imageWithData:imageData];
-        
             
-            UIImageWriteToSavedPhotosAlbum([self imageByStraightenImage:image andAngle:2*M_PI - angle], nil, nil, nil);
+            if (self.needShowAssistantLine) {
+//                if (weakSelf.captureDeviceInput.device.position == AVCaptureDevicePositionFront) {
+//                    angle = angle;
+//                }else{
+//                    angle = 2*M_PI - angle;
+//                }
+                image = [self imageByStraightenImage:image andAngle:angle];
+            }
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
             //            ALAssetsLibrary *assetsLibrary=[[ALAssetsLibrary alloc]init];
             //            [assetsLibrary writeImageToSavedPhotosAlbum:[image CGImage] orientation:(ALAssetOrientation)[image imageOrientation] completionBlock:nil];
         }
@@ -344,27 +354,21 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 //旋转一定角度
 - (UIImage *)imageByStraightenImage:(UIImage *)image andAngle:(CGFloat)angle
 {
-    if (!image || angle < 0) return nil;
+    if (!image) return nil;
     
     CIImage* ciImage = [CIImage imageWithCGImage:image.CGImage];
     
     ciImage = [ciImage imageByApplyingTransform:CGAffineTransformMakeRotation(-M_PI/2.0)];
     CGPoint origin = [ciImage extent].origin;
     ciImage = [ciImage imageByApplyingTransform:CGAffineTransformMakeTranslation(-origin.x, -origin.y)];
-    CGSize finalSize = [self sizeOfDeviceRotationAngleFromSize:ciImage.extent.size];
+    CGSize finalSize = [self sizeOfRotationAngle:angle FromSize:ciImage.extent.size];
     
-    ciImage = [ciImage imageByApplyingTransform:CGAffineTransformMakeRotation(angle)];
+    ciImage = [ciImage imageByApplyingTransform:CGAffineTransformMakeRotation(2*M_PI - angle)];
     origin = [ciImage extent].origin;
     ciImage = [ciImage imageByApplyingTransform:CGAffineTransformMakeTranslation(-origin.x, -origin.y)];
     
     CGPoint finalOrigin = CGPointMake((ciImage.extent.size.width - finalSize.width)/2, (ciImage.extent.size.height - finalSize.height)/2);
-    ciImage = [ciImage imageByCroppingToRect:CGRectMake(finalOrigin.x, finalOrigin.y, finalSize.width, finalSize.height)];//CGRectMake(finalOrigin.x, finalOrigin.y, finalSize.width, finalSize.height)
-    
-//    CIFilter *straightenFilter = [CIFilter filterWithName:@"CIStraightenFilter"];
-//    [straightenFilter setValue:ciImage forKey:kCIInputImageKey];
-//    [straightenFilter setValue:@(angle) forKey:kCIInputAngleKey];
-//    
-//    ciImage = [straightenFilter outputImage];
+    ciImage = [ciImage imageByCroppingToRect:CGRectMake(finalOrigin.x, finalOrigin.y, finalSize.width, finalSize.height)];
     
     CGImageRef cgImage = [[CIContext contextWithOptions:nil] createCGImage:ciImage fromRect:[ciImage extent]];
     UIImage *outputImage = [UIImage imageWithCGImage:cgImage];
@@ -396,6 +400,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     if ([self.captureSession canAddInput:toChangeDeviceInput]) {
         [self.captureSession addInput:toChangeDeviceInput];
         self.captureDeviceInput=toChangeDeviceInput;
+        
     }
     //提交会话配置
     [self.captureSession commitConfiguration];
@@ -472,7 +477,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
  *  @param notification 通知对象
  */
 -(void)areaChange:(NSNotification *)notification{
-//    NSLog(@"捕获区域改变...");
+    //    NSLog(@"捕获区域改变...");
 }
 
 /**
@@ -635,10 +640,11 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     self.focusCursor.center=point;
     self.focusCursor.transform=CGAffineTransformMakeScale(1.5, 1.5);
     self.focusCursor.alpha=1.0;
+    __weak __typeof(self) weakSelf = self;
     [UIView animateWithDuration:1.0 animations:^{
-        self.focusCursor.transform=CGAffineTransformIdentity;
+        weakSelf.focusCursor.transform=CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
-        self.focusCursor.alpha=0;
+        weakSelf.focusCursor.alpha=0;
         
     }];
 }

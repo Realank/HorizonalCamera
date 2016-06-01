@@ -33,8 +33,15 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IpC-Bh-tdH">
-                                <rect key="frame" x="284" y="562" width="32" height="30"/>
-                                <state key="normal" title="Shot"/>
+                                <rect key="frame" x="278" y="548" width="44" height="44"/>
+                                <color key="backgroundColor" red="0.85664848989999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="IpC-Bh-tdH" secondAttribute="height" multiplier="1:1" id="MkM-aU-JOU"/>
+                                    <constraint firstAttribute="width" constant="44" id="x7g-c0-fRK"/>
+                                </constraints>
+                                <state key="normal" title="Shot">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="takeButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H7L-Qr-Dhm"/>
                                 </connections>
