@@ -46,6 +46,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupCamera];
+    _takeButton.layer.cornerRadius = _takeButton.bounds.size.width/2;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -89,22 +90,32 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 - (void)drawHorizonalLine{
     CALayer* containerLayer = _viewContainer.layer;
     if (!_viewScopeLayer) {
-        _viewScopeLayer = [[CALayer alloc]init];
+        
+        _viewScopeLayer = [[CALayer alloc] init];
+        _viewScopeLayer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5].CGColor;
+        CALayer* maskLayer = [[CALayer alloc]init];
         CGFloat containerWidth = containerLayer.bounds.size.width;
         CGFloat containerHeight = containerLayer.bounds.size.height;
-        _viewScopeLayer.bounds = CGRectMake(0, 0, 2*MAX(containerWidth, containerHeight), 2);
-        _viewScopeLayer.position = CGPointMake(containerWidth/2, containerHeight/2);
-        _viewScopeLayer.borderColor = [[UIColor greenColor] colorWithAlphaComponent:0.6].CGColor;
-        _viewScopeLayer.borderWidth = 2;
-        [containerLayer addSublayer:_viewScopeLayer];
+        
+        _viewScopeLayer.frame = CGRectMake(0, 0, containerWidth, containerHeight);
+        maskLayer.bounds = CGRectMake(0, 0, 2*MAX(containerWidth, containerHeight), 2);
+        maskLayer.position = CGPointMake(containerWidth/2, containerHeight/2);
+//        _viewScopeLayer.borderColor = [[UIColor greenColor] colorWithAlphaComponent:0.6].CGColor;
+//        _viewScopeLayer.borderWidth = 2;
+//        [containerLayer addSublayer:_viewScopeLayer];
+        containerLayer.mask = _viewScopeLayer;
+        maskLayer.backgroundColor = [UIColor blackColor].CGColor;
+        [_viewScopeLayer addSublayer: maskLayer];
         
         
         
     }
-    _viewScopeLayer.affineTransform = CGAffineTransformMakeRotation(-_deviceAngle);
+    CALayer* maskLayer = [[_viewScopeLayer sublayers]lastObject];
+    
+    maskLayer.affineTransform = CGAffineTransformMakeRotation(-_deviceAngle);
     
     CGSize size = [self sizeOfRotationAngle:_deviceAngle FromSize:containerLayer.bounds.size];
-    _viewScopeLayer.bounds = CGRectMake(0, 0, size.width, size.height);
+    maskLayer.bounds = CGRectMake(0, 0, size.width, size.height);
 }
 
 - (CGSize)sizeOfRotationAngle:(CGFloat)angle FromSize:(CGSize)originalSize{
@@ -250,18 +261,18 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     _needShowAssistantLine = NO;
     for (int i = 0; i <= 4; i++) {
         CGFloat gap = _deviceAngle - i * M_PI_2;
-        if (fabs(gap) < 0.45) {
+        if (fabs(gap) < 0.45 && fabs(_motionManager.deviceMotion.gravity.z) < 0.9) {
             _needShowAssistantLine = YES;
             break;
         }
     }
     if (_needShowAssistantLine) {
-        [self drawCameraLineForHorizonal:(_deviceOritation == UIDeviceOrientationPortrait || _deviceOritation == UIDeviceOrientationPortraitUpsideDown)];
+//        [self drawCameraLineForHorizonal:(_deviceOritation == UIDeviceOrientationPortrait || _deviceOritation == UIDeviceOrientationPortraitUpsideDown)];
         [self drawHorizonalLine];
         
         
     }else{
-        [self dismissCameraLine];
+//        [self dismissCameraLine];
         [self dismissHorizonalLine];
         
     }
@@ -328,7 +339,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     //根据设备输出获得连接
     AVCaptureConnection *captureConnection=[self.captureStillImageOutput connectionWithMediaType:AVMediaTypeVideo];
     //根据连接取得设备输出的数据
-    CGFloat angle = _deviceAngle;
+    __block CGFloat angle = _deviceAngle;
     __weak __typeof(self) weakSelf = self;
     [self.captureStillImageOutput captureStillImageAsynchronouslyFromConnection:captureConnection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
         if (imageDataSampleBuffer) {
@@ -336,12 +347,10 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
             UIImage *image=[UIImage imageWithData:imageData];
             
             if (self.needShowAssistantLine) {
-//                if (weakSelf.captureDeviceInput.device.position == AVCaptureDevicePositionFront) {
-//                    angle = angle;
-//                }else{
-//                    angle = 2*M_PI - angle;
-//                }
-                image = [self imageByStraightenImage:image andAngle:angle];
+                if (weakSelf.captureDeviceInput.device.position == AVCaptureDevicePositionFront) {
+                    angle = 2*M_PI - angle;
+                }
+                image = [weakSelf imageByStraightenImage:image andAngle:angle shouldFlipRotation:weakSelf.captureDeviceInput.device.position == AVCaptureDevicePositionFront];
             }
             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
             //            ALAssetsLibrary *assetsLibrary=[[ALAssetsLibrary alloc]init];
@@ -352,7 +361,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 }
 
 //旋转一定角度
-- (UIImage *)imageByStraightenImage:(UIImage *)image andAngle:(CGFloat)angle
+- (UIImage *)imageByStraightenImage:(UIImage *)image andAngle:(CGFloat)angle shouldFlipRotation:(BOOL)isFrontCamera
 {
     if (!image) return nil;
     
@@ -361,7 +370,12 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     ciImage = [ciImage imageByApplyingTransform:CGAffineTransformMakeRotation(-M_PI/2.0)];
     CGPoint origin = [ciImage extent].origin;
     ciImage = [ciImage imageByApplyingTransform:CGAffineTransformMakeTranslation(-origin.x, -origin.y)];
-    CGSize finalSize = [self sizeOfRotationAngle:angle FromSize:ciImage.extent.size];
+    
+    CGFloat angleToCalcSize = angle;
+    if (isFrontCamera) {
+        angleToCalcSize = 2*M_PI - angle;
+    }
+    CGSize finalSize = [self sizeOfRotationAngle:angleToCalcSize FromSize:ciImage.extent.size];
     
     ciImage = [ciImage imageByApplyingTransform:CGAffineTransformMakeRotation(2*M_PI - angle)];
     origin = [ciImage extent].origin;

@@ -22,9 +22,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mlf-Vj-g0K">
                                 <rect key="frame" x="0.0" y="50" width="600" height="799"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HN5-pG-2HQ">
-                                        <rect key="frame" x="46" y="59" width="54" height="54"/>
-                                        <color key="backgroundColor" red="1" green="0.8096175377" blue="0.47840306910000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cursor" translatesAutoresizingMaskIntoConstraints="NO" id="HN5-pG-2HQ">
+                                        <rect key="frame" x="46" y="59" width="55" height="55"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -33,11 +32,11 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IpC-Bh-tdH">
-                                <rect key="frame" x="278" y="548" width="44" height="44"/>
+                                <rect key="frame" x="267" y="514" width="66" height="66"/>
                                 <color key="backgroundColor" red="0.85664848989999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="IpC-Bh-tdH" secondAttribute="height" multiplier="1:1" id="MkM-aU-JOU"/>
-                                    <constraint firstAttribute="width" constant="44" id="x7g-c0-fRK"/>
+                                    <constraint firstAttribute="width" constant="66" id="x7g-c0-fRK"/>
                                 </constraints>
                                 <state key="normal" title="Shot">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,28 +47,36 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSO-hh-oDc">
                                 <rect key="frame" x="96" y="20" width="30" height="30"/>
-                                <state key="normal" title="自动"/>
+                                <state key="normal" title="自动">
+                                    <color key="titleColor" red="0.85664848989999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="flashAutoClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jdP-JL-Mtx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxN-qn-Dfy">
                                 <rect key="frame" x="20" y="20" width="30" height="30"/>
-                                <state key="normal" title="关闭"/>
+                                <state key="normal" title="关闭">
+                                    <color key="titleColor" red="0.85664848989999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="flashOffClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SXg-aQ-Cla"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEv-Bz-K40">
                                 <rect key="frame" x="550" y="20" width="30" height="30"/>
-                                <state key="normal" title="切换"/>
+                                <state key="normal" title="切换">
+                                    <color key="titleColor" red="0.85664848989999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="toggleButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZwM-hW-Hrn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PG7-P4-col">
                                 <rect key="frame" x="58" y="20" width="30" height="30"/>
-                                <state key="normal" title="打开"/>
+                                <state key="normal" title="打开">
+                                    <color key="titleColor" red="0.85664848989999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="flashOnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5hy-7J-Mvl"/>
                                 </connections>
@@ -79,7 +86,7 @@
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="NxN-qn-Dfy" secondAttribute="leading" id="6Yy-i8-0aO"/>
                             <constraint firstItem="Mlf-Vj-g0K" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="8gu-mi-4Fc"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IpC-Bh-tdH" secondAttribute="bottom" constant="8" id="9M2-ll-dEQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IpC-Bh-tdH" secondAttribute="bottom" constant="20" id="9M2-ll-dEQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mlf-Vj-g0K" secondAttribute="bottom" constant="20" id="A4f-xe-ksj"/>
                             <constraint firstItem="HSO-hh-oDc" firstAttribute="centerY" secondItem="PG7-P4-col" secondAttribute="centerY" id="Imk-AT-sxu"/>
                             <constraint firstItem="PG7-P4-col" firstAttribute="leading" secondItem="NxN-qn-Dfy" secondAttribute="trailing" constant="8" id="KNM-iT-Ga4"/>
@@ -112,4 +119,7 @@
             <point key="canvasLocation" x="565" y="477"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cursor" width="55" height="55"/>
+    </resources>
 </document>
